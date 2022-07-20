@@ -5,3 +5,4 @@ Chosen language : Python
 
 Chapter 1. Reacap
         1.1 Function
+        1.2 Input a value 

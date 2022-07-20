@@ -1,4 +1,4 @@
-# This simple program teaches how to use the input and the print functions
+# This simple program teaches how to use the input and the print functions respectively
 # Enter 2 Values then retrieve them and print them
 
 

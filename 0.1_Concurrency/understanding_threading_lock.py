@@ -12,7 +12,9 @@ class MyThread(threading.Thread):
     
     def run(self):
         print(f'Starting thread {self.name}')
+        self.thread_lock.acquire()
         self.thread_count_down(self.name, self.delay)
+        self.thread_lock.release()
         print(f'Finished thread {self.name}')
 
     def thread_count_down(self,name, delay):
@@ -24,38 +26,13 @@ class MyThread(threading.Thread):
             counter -= 1
 
 
-print()
-
 threadA = MyThread('A',0.5)
 threadB = MyThread('B',0.5)
-
-if(threadA.is_alive()):
-    print('ThreadA/B are alive ')
-else:
-    print('ThreadA/B are not YET alive ')
-
-print()
 
 threadA.start()
 threadB.start()
 
-if(threadA.is_alive()):
-    print('ThreadA/B SHOULD BE alive NOW')
-else:
-    print('ThreadA/B are not alive ')
-
-print()
-
 threadA.join()
 threadB.join()
-
-print()
-
-if(threadA.is_alive()):
-    print('ThreadA is alive ')
-else:
-    print('ThreadA/B are no longer alive')
-
-print()
 
 print('Finished')

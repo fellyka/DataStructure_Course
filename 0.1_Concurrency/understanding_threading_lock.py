@@ -12,19 +12,22 @@ class MyThread(threading.Thread):
     
     def run(self):
         print(f'Starting thread {self.name}')
-        self.thread_lock.acquire()
+        thread_lock.acquire()
         self.thread_count_down(self.name, self.delay)
-        self.thread_lock.release()
+        thread_lock.release()
         print(f'Finished thread {self.name}')
 
     def thread_count_down(self,name, delay):
         counter = 5
+       
 
         while counter:
             time.sleep(delay)
             print(f'Thread counting down: {name, counter}')
             counter -= 1
 
+thread_lock = threading.Lock()
+       
 
 threadA = MyThread('A',0.5)
 threadB = MyThread('B',0.5)

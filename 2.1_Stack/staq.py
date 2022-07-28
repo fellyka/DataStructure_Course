@@ -36,4 +36,4 @@ class ArrayStack:
             raise Empty('Stack is empty')
         return self._data.pop()  # remove last item from list
 
-#234
+
